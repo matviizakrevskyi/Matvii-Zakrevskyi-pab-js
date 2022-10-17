@@ -1,0 +1,43 @@
+.container{
+    width: 1200px;
+    height: 500px;
+}
+#slider {
+    width: 600px;
+    height: 400px;
+    margin: 100px auto 0 auto;
+    overflow: hidden;
+}
+.slides {
+    display: flex;
+    position: relative;
+    left: 0;
+    transition: all ease 1s;
+}
+
+/* .none{
+    display: none;
+    animation: 2s hide ease;
+}
+.block{
+    display: block;
+    animation: 2s show ease;
+}
+
+@keyframes pociag-w-lewo {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-600px);
+    }
+}
+
+@keyframes show {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes hide {
+    from { opacity: 1; }
+    to { opacity: 0; }
+} */
