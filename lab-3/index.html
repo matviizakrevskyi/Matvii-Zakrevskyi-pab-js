@@ -5,10 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <audio src="" controls id="s1"></audio>
-    <audio src="" controls id="s2"></audio>
+    <div class="keys-container">
+        <div id="a" class="key">
+            <kbd>A</kbd>
+        </div>
+        <div id="s" class="key">
+            <kbd>S</kbd>
+        </div>
+        <div id="d" class="key">
+            <kbd>D</kbd>
+        </div>
+        <div id="f" class="key">
+            <kbd>F</kbd>
+        </div>
+        <div id="g" class="key">
+            <kbd>G</kbd>
+        </div>
+        <div id="h" class="key">
+            <kbd>H</kbd>
+        </div>
+        <div id="j" class="key">
+            <kbd>J</kbd>
+        </div>
+    </div>
+    <div class="channel-container">
+        <div class="channel">
+            <h2>1 channel</h2>
+            <button id="btn-record-1" class="btn">RECORD</button>
+            <button id="btn-play-1" class="btn">PLAY</button>
+        </div>
+        <div class="channel">
+            <h2>2 channel</h2>
+            <button id="btn-record-2" class="btn">RECORD</button>
+            <button id="btn-play-2" class="btn">PLAY</button>
+        </div>
+        <div class="channel">
+            <h2>3 channel</h2>
+            <button id="btn-record-3" class="btn">RECORD</button>
+            <button id="btn-play-3" class="btn">PLAY</button>
+        </div>
+        <div class="channel">
+            <h2>4 channel</h2>
+            <button id="btn-record-4" class="btn">RECORD</button>
+            <button id="btn-play-4" class="btn">PLAY</button>
+        </div>
+    </div>
+    <audio src="./audio/clap-808.wav" id="s1"></audio>
+    <audio src="./audio/hihat-808.wav" id="s2"></audio>
+    <audio src="./audio/kick-808.wav" id="s3"></audio>
+    <audio src="./audio/kick-oldschool.wav" id="s4"></audio>
+    <audio src="./audio/openhat-808.wav" id="s5"></audio>
+    <audio src="./audio/snare-808.wav" id="s6"></audio>
+    <audio src="./audio/tom-808.wav" id="s7"></audio>
     <script src="main.js"></script>
 </body>
 </html>
