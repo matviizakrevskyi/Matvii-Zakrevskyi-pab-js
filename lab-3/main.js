@@ -12,9 +12,8 @@ const KeyToSound = {
 
 function onKeyPress(ev){
     const sound = KeyToSound[ev.key]
-    //console.log(ev.key)
     document.querySelector(`#${ev.key}`).classList.add('key-playing')
-    setTimeout(() => {document.querySelector(`#${ev.key}`).classList.remove('key-playing')}, 200)
+    setTimeout(() => {document.querySelector(`#${ev.key}`).classList.remove('key-playing')}, 150)
     playSound(sound)
 }
 
