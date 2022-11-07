@@ -4,9 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <div name="form" id="form">
+		<h2>NotePocket</h2>
+		<p>
+            <div class="titles">Title:</div> 
+            <input id="title" name="title" type="text"/> 
+        </p>
+		<p> 
+            <div class="titles">Content:</div>
+            <textarea id="content" name="message" cols="22" rows="5" /></textarea>
+        </p>
+        <p>
+            <div class="titles">Color:</div> 
+            <input id="color" name="title" type="color"/> 
+        </p>
+		<p>
+            <button class="btn-submit" id="submit">Send</button>
+        </p>
+	</div>
+    <hr>
+    <div class="container-notes">
+        <h2>Notes</h2>
+        <button class="btn-show">Show</button>
+        <ul id="list-notes">
+            <li>
+                <div class="note hide">
+                    <p>
+                        <h4>Title</h4>
+                    </p>
+                    <p>
+                        <text class="note-content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Vivamus pulvinar facilisis elit nec elementum. 
+                            Sed placerat eros massa, nec luctus odio posuere at.
+                        </text>
+                    </p>
+                    <p>
+                        <text>
+                            22:58 06.11.2022
+                        </text>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>

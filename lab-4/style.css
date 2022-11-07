@@ -1,0 +1,63 @@
+.titles{
+	width: 140px;
+	float: left;
+}
+
+#form{
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	border-radius: 5px;
+	margin:10px;
+	margin-left: 500px;
+	padding: 10px;
+	width: 320px;
+	height:330px;
+}
+
+#form input,textarea{
+	border-radius: 5px;
+	width: 170px;
+}
+
+.btn-submit{
+    width: 170px;
+	height: 40px;
+	float: right;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+#form h2{
+	text-align: center;
+}
+
+.container-notes{
+	width: 1350px;
+	text-align: center;
+}
+
+.note{
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	border-radius: 5px;
+	text-align: left;
+	margin:10px;
+	padding: 10px;
+	width: 320px;
+	margin-left: 460px;
+}
+
+.hide{
+	display: none;
+}
+
+.note-content{
+	width: 300px;
+}
+
+.btn-delete{
+	width: 100px;
+	height: 30px;
+	float: right;
+    margin-right: 10px;
+	margin-top: 10px;
+    border-radius: 5px;
+}
