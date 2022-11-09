@@ -12,17 +12,21 @@
 		<h2>NotePocket</h2>
 		<p>
             <div class="titles">Title:</div> 
-            <input id="title" name="title" type="text"/> 
+            <input class="inputNote" id="title" name="title" type="text"/> 
         </p>
 		<p> 
             <div class="titles">Content:</div>
-            <textarea id="content" name="message" cols="22" rows="5" /></textarea>
+            <textarea class="inputNote" id="content" name="message" cols="22" rows="5" /></textarea>
         </p>
         <p>
             <div class="titles">Color:</div> 
-            <input id="color" name="title" type="color"/> 
+            <input class="inputNote" id="color" name="title" type="color"/> 
         </p>
 		<p>
+            <div class="pin-input">
+                <label for="pin">Pin: </label>
+                <input id="pin" type="checkbox" name="pin" class="pin"/>
+            </div>
             <button class="btn-submit" id="submit">Send</button>
         </p>
 	</div>
@@ -30,27 +34,62 @@
     <div class="container-notes">
         <h2>Notes</h2>
         <button class="btn-show">Show</button>
-        <ul id="list-notes">
-            <li>
-                <div class="note hide">
-                    <p>
-                        <h4>Title</h4>
-                    </p>
-                    <p>
-                        <text class="note-content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Vivamus pulvinar facilisis elit nec elementum. 
-                            Sed placerat eros massa, nec luctus odio posuere at.
-                        </text>
-                    </p>
-                    <p>
-                        <text>
-                            22:58 06.11.2022
-                        </text>
-                    </p>
-                </div>
-            </li>
-        </ul>
+        <div class="lists">
+            <ul id="list-notes" class="list-notes">
+                <li>
+                    <div class="note">
+                        <p>
+                            <h4>Title</h4>
+                        </p>
+                        <hr>
+                        <p>
+                            <text class="note-content">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Vivamus pulvinar facilisis elit nec elementum. 
+                                Sed placerat eros massa, nec luctus odio posuere at.
+                            </text>
+                        </p>
+                        <p>
+                            <text>
+                                22:58 06.11.2022
+                            </text>
+                        </p>
+                        <p class="pForExample">
+                            <button class="btn-delete">Delete</button>
+                            <button class="btn-delete">Edit</button>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="note">
+                        <p>
+                            <input class="inputNote" value="TitleExmpl">
+                            <input type="checkbox" class="pinExmpl">
+                        </p>
+                        <hr>
+                        <p>
+                            <textarea class="inputEdit">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Vivamus pulvinar facilisis elit nec elementum. 
+                                Sed placerat eros massa, nec luctus odio posuere at.
+                            </textarea>
+                        </p>
+                        <p> 
+                            <input class="colorEdit" id="color" type="color" value="#FAFAFA"/> 
+                        </p>
+                        <p>
+                            <text>
+                                22:58 06.11.2022
+                            </text>
+                        </p>
+                        <p class="pForBtnsEdit">
+                            <button class="btn-delete">Cancel</button>
+                            <button class="btn-delete">Accept</button>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>

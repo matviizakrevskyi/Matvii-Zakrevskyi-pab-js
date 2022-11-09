@@ -13,7 +13,7 @@
 	height:330px;
 }
 
-#form input,textarea{
+.inputNote{
 	border-radius: 5px;
 	width: 170px;
 }
@@ -28,6 +28,18 @@
 
 #form h2{
 	text-align: center;
+}
+
+.pin{
+	width: 30px;
+}
+
+.pin-input{
+	width: 140px;
+	height: 20px;
+	float: left;
+	text-align: left;
+	margin-top: 13px;
 }
 
 .container-notes{
@@ -54,10 +66,37 @@
 }
 
 .btn-delete{
-	width: 100px;
+	width: 65px;
 	height: 30px;
 	float: right;
     margin-right: 10px;
 	margin-top: 10px;
     border-radius: 5px;
+}
+
+.lists{
+	display: flex;
+}
+
+.list-notes{
+	list-style: none;
+}
+
+.pForBtnsEdit{
+	height: 30px;
+}
+
+.inputEdit{
+	width: 315px;
+	height: 120px;
+	border-radius: 5px;
+}
+
+.pinExmpl{
+	float: right;
+}
+
+.colorEdit{
+	width: 315px;
+	border-radius: 5px;
 }
