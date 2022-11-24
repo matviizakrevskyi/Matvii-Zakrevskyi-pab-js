@@ -1,0 +1,85 @@
+.field{
+    width: 400px;
+	height: 600px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	border-radius: 5px;
+	margin:10px;
+	padding: 10px;
+}
+
+.ball{
+	left: 190px;
+	top: 290px;
+	display: flex;
+	position: relative;
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background-color: black;
+	z-index: 1;
+}
+
+.hall{
+	left: 185px;
+	top: 450px;
+	display: flex;
+	position: relative;
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	background-color: rgb(168, 168, 168);
+}
+
+.TitleWin{
+	/* display: flex; */
+	display: none;
+	position: relative;
+	left: 140px;
+	top: 50px;
+	font-size: 32px;
+	text-shadow: 0 0 1px black;
+	color: rgb(42, 42, 42);
+}
+
+.hide{
+	display: none;
+}
+
+
+.btn {
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+			appearance: none;
+	background-color: transparent;
+	border: 2px solid #000000;
+	border-radius: 0.6em;
+	color: #000000;
+	cursor: pointer;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	/* display: none; */
+	-webkit-align-self: center;
+		-ms-flex-item-align: center;
+			align-self: center;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1;
+	padding: 5px 10px;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	margin: 0 auto;
+	margin-top: 55px;
+	-webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+	transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.btn:hover {
+	box-shadow: 0 0 40px 40px #000000 inset;
+	color: white;
+}
