@@ -1,13 +1,28 @@
 const ball = document.querySelector('.ball')
 document.querySelector('.btn').addEventListener('click', Start)
 
+var timeStart
+var timeEnd
+
 function Start(){
     document.querySelector('.btn').style.display = 'none';
+    document.querySelector('.Time').style.display = 'none';
     document.querySelector('.TitleWin').style.display = 'none';
     ballPossX = 190
     ballPossY = 290
+    ball.style.left = 190 + 'px'
+    ball.style.top = 290 + 'px'
+    timeStart = Date.now()
     window.addEventListener('deviceorientation', onDeviceMove)
+    //window.addEventListener('devicemotion', onDeviceMove2)
 }
+
+// function onDeviceMove2(event){
+
+// }
+
+
+
 
 var defaultAlpha
 var defaultBeta
@@ -23,7 +38,7 @@ function onDeviceMove(event) {
         defaultBeta = event.beta
         defaultGamma = event.gamma
     }
-
+    event.alpha = 0
 
     //moving
     var moveX
@@ -63,6 +78,7 @@ function onDeviceMove(event) {
             ball.style.left = 190 + 'px'
             ball.style.top = 475 + 'px'
             document.querySelector('.TitleWin').style.display = 'flex';
+            document.querySelector('.Time').style.display = 'flex';
             document.querySelector('.btn').style.display = 'flex';
             cancelAnimationFrame(aniframe)
     }
@@ -118,11 +134,7 @@ function animate(moveX, moveY) {
 
     if(ballPossX > 175 && ballPossX < 200
         && ballPossY > 472 && ballPossY < 480){
-            console.log('Victory!!!')
-            ball.style.left = 190 + 'px'
-            ball.style.top = 475 + 'px'
-            document.querySelector('.TitleWin').style.display = 'flex';
-            document.querySelector('.btn').style.display = 'flex';
+            Win()
             cancelAnimationFrame(aniframe)
     }
     else{
@@ -130,4 +142,35 @@ function animate(moveX, moveY) {
     }
 }
 
+
+function Win(){
+    timeEnd = Date.now()
+    ball.style.left = 190 + 'px'
+    ball.style.top = 475 + 'px'
+
+        //Title
+    document.querySelector('.TitleWin').style.display = 'flex';
+
+        //Time
+    document.querySelector('.Time').style.display = 'flex';
+    document.querySelector('.Time').innerHTML = (timeEnd - timeStart) / 1000 + 's'
+
+        //Results
+    if(timeEnd - timeStart < 5000){
+        document.querySelector('.Time').style.color = '#adff2f'
+        document.querySelector('.TitleWin').innerHTML = 'Very nice!!!'
+    }
+    else if(timeEnd - timeStart < 15000){
+        document.querySelector('.Time').style.color = '#ffa500'
+        document.querySelector('.TitleWin').innerHTML = 'Good!'
+    }
+    else{
+        document.querySelector('.Time').style.color = '#ff0000'
+        document.querySelector('.TitleWin').innerHTML = 'Maybe try again?'
+    }
+
+
+        //Button
+    document.querySelector('.btn').style.display = 'flex';
+}
 

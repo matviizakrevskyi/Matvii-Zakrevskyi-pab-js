@@ -31,14 +31,25 @@
 }
 
 .TitleWin{
-	/* display: flex; */
 	display: none;
+	align-items: center;
+  	justify-content: center;
 	position: relative;
-	left: 140px;
-	top: 50px;
 	font-size: 32px;
 	text-shadow: 0 0 1px black;
 	color: rgb(42, 42, 42);
+}
+
+.Time{
+	display: none;
+	align-items: center;
+  	justify-content: center;
+	position: relative;
+	font-size: 24px;
+	text-shadow: 0 0 1px rgb(0, 0, 0);
+	margin-top: 6px;
+	color: rgb(42, 42, 42);
+	color: re;
 }
 
 .hide{
@@ -74,7 +85,7 @@
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 700;
 	margin: 0 auto;
-	margin-top: 55px;
+	margin-top: 30px;
 	-webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 	transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
