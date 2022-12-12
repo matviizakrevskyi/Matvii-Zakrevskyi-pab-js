@@ -17,6 +17,7 @@ function Start(){
     document.querySelector('.inputCount').style.display = 'none';
     document.querySelector('.check').style.display = 'none';
     document.querySelector('.radios').style.display = 'none';
+    document.querySelector('.checkGame').style.display = 'none';
 
     
     var canv = document.querySelector('.canv')
@@ -54,6 +55,38 @@ function Start(){
         }
     }
 
+    //Ball for game class
+    class BallIO {
+        id
+        PosX
+        PosY
+        radius
+        VX
+        VY
+        weight
+
+        constructor(id, PosX, PosY, weight){
+            this.id = id
+            this.PosX = PosX
+            this.PosY = PosY
+            this.weight = weight
+            //weight = 4 => radius = 8 => VX + VY = 2
+            //weight = 8 => radius = 16 => VX + VY = 1
+            //weight = x => radius = 2x => VX + VY = 8 / x
+            this.radius = weight * 2
+            this.VX = getRandom(0, 8 / weight)
+            this.VY = (8 / weight) - this.VX 
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.PosX, this.PosY, this.radius, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.fillStyle = 'black';
+            ctx.fill();
+        }
+    }
+
     //class vector
     class Vector {
         x
@@ -68,21 +101,54 @@ function Start(){
     }
     
     //animation
-    function animationBall(balls) {
+    function animationBall() {
         ctx.clearRect(0, 0, canv.width, canv.height)
 
         for (let i = 0; i < balls.length; i++){
+            while(balls[i] == null){
+                i++
+            }
             //balls
             balls[i].draw()
             
-            //lines
+            
+            
+            
             for (let j = 0; j < balls.length; j++){
+                while(balls[j] == null){
+                    j++
+                }
+                
                 var c = ((balls[i].PosX - balls[j].PosX)**2 
                     + (balls[i].PosY - balls[j].PosY)**2)**(1/2)
+
+
+                //forGame
+                if(document.querySelector('#highload2').checked == true){
+                    if(c < (balls[i].radius + balls[j].radius) * 0.625 && c > 0){
+                        if(balls[i].weight > balls[j].weight){
+                            console.log("balls[i] " + balls[i].id)
+                            console.log("balls[j] " + balls[j].id)
+                            console.log(balls)
+                            var temp = new BallIO(
+                                balls[i].id,
+                                balls[i].PosX,
+                                balls[i].PosY,
+                                balls[i].weight + (balls[j].weight / 4)
+                            )
+                            balls[i] = temp
+                            balls[j] = null   //--   not true
+                                                // if j == last +> error 
+                                                // fix it
+                        }
+                    }   
+                }
                 
-                
-                
+                //lines
                 if (c < distance && c > 0){
+                    while(balls[j] == null){
+                        j++
+                    }
                     ctx.beginPath()
                     ctx.moveTo(balls[i].PosX, balls[i].PosY)
                     ctx.lineTo(balls[j].PosX, balls[j].PosY)
@@ -91,12 +157,16 @@ function Start(){
                     ctx.stroke()
                     
                 }
+
             }
         }
 
         for (let i = 0; i < balls.length; i++){
+            while(balls[i] == null){
+                i++
+            }
             ctx.beginPath();
-            ctx.arc(balls[i].PosX, balls[i].PosY, balls[i].radius - 3, 0, Math.PI * 2, true);
+            ctx.arc(balls[i].PosX, balls[i].PosY, balls[i].radius * 0.625, 0, Math.PI * 2, true);
             ctx.closePath();
             ctx.fillStyle = 'white';
             ctx.fill();
@@ -134,6 +204,7 @@ function Start(){
             balls[i].PosX += balls[i].VX
             balls[i].PosY += balls[i].VY
 
+            //mouse holding
             if(idBallEs == balls[i].id){
                 balls[i].PosX = mouseX
                 balls[i].PosY = mouseY
@@ -142,7 +213,7 @@ function Start(){
 
         
 
-        requestAnimationFrame(function(){animationBall(balls)})
+        requestAnimationFrame(animationBall)
     }
 
     //random func
@@ -154,15 +225,28 @@ function Start(){
     //start
     var balls = new Array()
 
-    for (let i = 0; i < count; i++){
-        balls[i] = new Ball(`${i}`, 
-            getRandom(0, canv.width), 
-            getRandom(0, canv.height), 
-            getRandom(-1.5, 1.5), 
-            getRandom(-1.5, 1.5))
+    if(document.querySelector('#highload2').checked == false){
+        for (let i = 0; i < count; i++){
+            balls[i] = new Ball(
+                `${i}`, 
+                getRandom(0, canv.width), 
+                getRandom(0, canv.height), 
+                getRandom(-1.5, 1.5), 
+                getRandom(-1.5, 1.5))
+        }
+    }
+    else{
+        for (let i = 0; i < count; i++){
+            balls[i] = new BallIO(
+                `${i}`,
+                getRandom(0, canv.width), 
+                getRandom(0, canv.height),
+                getRandom(2, 6)
+            )
+        }
     }
     
-    requestAnimationFrame(function(){animationBall(balls)})
+    requestAnimationFrame(animationBall)
 
     
     //mouse
@@ -182,10 +266,13 @@ function Start(){
     document.addEventListener('click', () => {
         if(isClick == false || idBallEs == null){
             for(let i = 0; i < balls.length; i++){
-                if(mouseX < balls[i].PosX + 10 &&
-                    mouseX > balls[i].PosX - 10 && 
-                    mouseY < balls[i].PosY + 10 &&
-                    mouseY > balls[i].PosY - 10
+                while(balls[i] == null){
+                    i++
+                }
+                if(mouseX < balls[i].PosX + balls[i].radius * 1.5 &&
+                    mouseX > balls[i].PosX - balls[i].radius * 1.5 && 
+                    mouseY < balls[i].PosY + balls[i].radius * 1.5 &&
+                    mouseY > balls[i].PosY - balls[i].radius * 1.5
                     ){
                         idBallEs = balls[i].id
                 }
