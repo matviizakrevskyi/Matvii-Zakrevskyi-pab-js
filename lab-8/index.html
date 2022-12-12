@@ -10,6 +10,25 @@
 <body>
     <div class="container">
         <input class="inputCount" placeholder="Count of balls">
+        <div class="check">
+            <!-- <text class="textMouse">
+                Mouse:
+            </text> -->
+            <label class="textMouse">Mouse:</label>
+            <input type="checkbox" id="highload1" name="highload1">
+            <label for="highload1" class="lb1"></label>
+        </div>
+        <div class="radios">
+            <div class="radio">
+                <input class="custom-radio" type="radio" id="repulsion" name="mouse" value="repulsion" disabled="disabled">
+                <label for="repulsion" class="lb2">Repulsion</label>
+            </div>
+            
+            <div class="radio">
+                <input class="custom-radio" type="radio" id="attraction" name="mouse" value="attraction" disabled="disabled">
+                <label for="attraction" class="lb2">Attraction</label>
+            </div>
+        </div>
         <button class="btn">Start</button>
         <canvas class="canv"></canvas>
     </div>
